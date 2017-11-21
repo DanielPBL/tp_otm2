@@ -4,10 +4,14 @@ function v = alteraVetor(v, dif)
   taxa =  dif / sqrt(l);
   
   for i = 1:l
-    if rand() > 0.5
-      v(i) = v(i) + rand() * taxa;
-    else
-      v(i) = v(i) - rand() * taxa;
+    fator = rand() * taxa;
+    v(i) = v(i) + fator;
+    
+    j = round((rand() * (l - 1)) + 1);
+    while v(j) < fator
+      j = round((rand() * (l - 1)) + 1);
     end
+    
+    v(j) = v(j) - fator;
   end
 end
