@@ -8,8 +8,14 @@
     as transicoes sao feitas sorteando um numero e entao atualizando o estado
     o contador de estados deve ser entao atualizado.
     
-    No final as probabilidades sao obtidas atraves da divisao do vetor de contador
-    pelo numero de iteracoes.
+    No final as probabilidades sao obtidas atraves da divisao do vetor de 
+    contador pelo numero de iteracoes.
+    
+    @param P matriz - 
+    @param init inteiro - estado inicial
+    @param iterations - numero de iteraçoes
+    @param transitions - numero de transicoes por iteracao
+    @return vetor - vetor com a probabilidade de se parar em cada estado
 %} 
  
 function [probabilities] = markova (P, init, iterations, transitions)
