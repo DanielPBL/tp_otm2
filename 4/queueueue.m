@@ -3,13 +3,11 @@
 %         Guilherme Fernandes Marchezini  201412040353
           
 %{ 
-    A solucao implementada consiste em 2 loops aninhados que realizam as
-    iteracoes e para cada uma delas executa um dado numero de transicoes
-    as transicoes sao feitas sorteando um numero e entao atualizando o estado
-    o contador de estados deve ser entao atualizado.
-    
-    No final as probabilidades sao obtidas atraves da divisao do vetor de contador
-    pelo numero de iteracoes.
+    A solucao implementada consiste nos algoritmos apresentador na disciplina teorica
+    de otimizacao 2. A solucao possui 1 loop que varia o tamanho de atendentes do sistema,
+    para cada uma das 4 variantes foi entao calculado o valor de ρ, que foi necessario para
+    o calculo de outras grandezas, em seguida foram utilizadas as formulas necessarias para
+    o calculo de P0, P1, P2, P5, P10, e as das demais grandezas.
 %} 
  
 function queueueue (lambida, u)
@@ -39,8 +37,9 @@ function queueueue (lambida, u)
       else
         P(n) = ((lambida/u)^n)/(factorial(s)*s^(n-s)) * P0;
       end      
-        
-      printf("P%d = %d\n", n, P(n));
+      if(n == 1 || n == 2 || n == 5 || n == 10)
+        printf("P%d = %d\n", n, P(n));
+      end
       
     end
     
@@ -64,7 +63,9 @@ function queueueue (lambida, u)
     
     for t = 1:6
       PW(t) = (1-PW0)*exp(-s*u*(1-p)*(t-1));
-      printf("PW(%d) = %d\n", t-1, PW(t)); 
+      if(t-1 == 0 || t-1 == 1 || t-1 == 2 || t-1 == 5)
+        printf("PW(%d) = %d\n", t-1, PW(t)); 
+      end
     end
     
     
